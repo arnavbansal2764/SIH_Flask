@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify, render_template
-from flask_main.SIH_Flask.interview_main import process_interview, record_interview
-from flask_main.SIH_Flask.resume_build import load_user_data, generate_resume
-from flask_main.SIH_Flask.analyse_resume import load_data, get_bot_response
+from interview_main import process_interview, record_interview
+from resume_build import load_user_data, generate_resume
+from analyse_resume import load_data, get_bot_response
 from similarity_score import download_file, pdf_to_text, calculate_similarity_score
-from flask_main.SIH_Flask.recommendation import analyze_resume
+from recommendation import analyze_resume
 import os
 app = Flask(__name__)
 
