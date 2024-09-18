@@ -11,7 +11,6 @@ This Flask application provides endpoints for resume building, interview process
 - **Similarity Scoring**: Calculate similarity scores between job descriptions and resumes.
 - **Recommendation**: Provide recommendations based on job descriptions and resumes.
 
-## Installation
 
 
 ### Clone the Repository
@@ -19,6 +18,12 @@ This Flask application provides endpoints for resume building, interview process
 ```bash
 git clone <your-repository-url>
 cd <repository-directory>
+```
+
+## Installation
+
+```bash
+pip install requests sentence-transformers fitz PyMuPDF scikit-learn spacy chromadb ollama Flask pyaudio pydub hume speechrecognition
 ```
 
 
