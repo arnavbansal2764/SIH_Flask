@@ -24,6 +24,9 @@ cd <repository-directory>
 
 ```bash
 pip install requests sentence-transformers fitz PyMuPDF scikit-learn spacy chromadb ollama Flask pyaudio pydub hume speechrecognition
+
+python -m spacy download en_core_web_sm
+
 ```
 
 
@@ -66,33 +69,16 @@ The following Ollama models are used:
 **URL**: `/interview`  
 **Method**: `GET`
 
-### 3. Process the Recorded Interview
-
-**URL**: `/process_interview`  
-**Method**: `POST`  
-**Response**:
-```json
-{
-  "result": "Interview analysis result here"
-}
-```
 
 ### 4. Analyze a Resume
 
 **URL**: `/analyse-resume`  
 **Method**: `POST`  
 **Request Body**:
-```json
-{
-  "file_url": "https://utfs.io/f/uYCJGxAcJId8uk6is3AcJId8F3SNyhRlvDtHqWgfLOrVjk70"
-}
 ```
-**Response**:
-```json
-{
-  "analysis": "Detailed analysis result here"
-}
+http://127.0.0.1:5000/analyse-resume?pdf_url=https://utfs.io/f/uYCJGxAcJId8uk6is3AcJId8F3SNyhRlvDtHqWgfLOrVjk70
 ```
+
 
 ### 5. Calculate Similarity Score
 
@@ -105,13 +91,7 @@ The following Ollama models are used:
   "resume_url": "https://utfs.io/f/uYCJGxAcJId8uk6is3AcJId8F3SNyhRlvDtHqWgfLOrVjk70"
 }
 ```
-**Response**:
-```json
-{
-  "score": 85,
-  "details": "Similarity details here"
-}
-```
+
 
 ### 6. Get Recommendations
 

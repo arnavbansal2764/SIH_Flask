@@ -1,23 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interview Recorder</title>
+    <title>Voice Input Processing</title>
 </head>
 <body>
-    <h1>Interview Recorder</h1>
-    <button id="recordBtn">Start Recording</button>
+    <h1>Record Your Answer</h1>
+    <button onclick="recordAudio()">Record</button>
+    <div id="response"></div>
 
     <script>
-        document.getElementById("recordBtn").addEventListener("click", function() {
-            alert("Recording started... (In actual app, implement recording here)");
-            // You can add your JavaScript here to handle recording
-            fetch('/process_interview', {
+        function recordAudio() {
+            fetch('/process_audio', {
                 method: 'POST'
-            }).then(response => response.json())
-              .then(data => console.log(data));
-        });
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('response').innerHTML = '<h3>Response:</h3><p>' + data.summary + '</p>';
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
     </script>
 </body>
 </html>
